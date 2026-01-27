@@ -1,6 +1,6 @@
 #!/bin/bash
 
-if [[ "$OS_ID" -ne "cachyos" ]]; then
+if [[ "$OS_ID" != "cachyos" ]]; then
   # Install Ly display manager
   echo "Installing Ly"
   paru -S --noconfirm --needed ly

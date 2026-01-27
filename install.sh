@@ -2,10 +2,9 @@
 
 set -euo pipefail
 
-OS_ID=$(awk -F= '/^ID/{print $2}' /etc/os-release | tr -d '"')
-
-SRC_DIR="./src"
-SCRIPTS_DIR="./scripts"
+export OS_ID=$(awk -F= '/^ID/{print $2}' /etc/os-release | tr -d '"')
+export SRC_DIR="./src"
+export SCRIPTS_DIR="./scripts"
 
 start=$(date +%s)
 

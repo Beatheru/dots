@@ -1,6 +1,6 @@
 #!/bin/bash
 
-if [[ "$OS_ID" -ne "cachyos" ]]; then
+if [[ "$OS_ID" != "cachyos" ]]; then
   # Install Limine
   echo "Installing Limine"
   paru -S --noconfirm --needed limine limine-dracut-support limine-snapper-sync snapper btrfs-assistant

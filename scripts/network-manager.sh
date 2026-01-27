@@ -1,6 +1,6 @@
 #!/bin/bash 
 
-if [[ "$OS_ID" -ne "arch" ]]; then
+if [[ "$OS_ID" = "arch" ]]; then
   # Install NetworkManager
   echo "Installing NetworkManager"
   paru -S --noconfirm --needed networkmanager iwd
@@ -9,9 +9,9 @@ if [[ "$OS_ID" -ne "arch" ]]; then
   echo "Configuring iwd as NetworkManager backend"
   sudo systemctl disable iwd
   cat <<EOF | sudo tee /etc/NetworkManager/conf.d/wifi_backend.conf
-  [device]
-  wifi.backend=iwd
-  EOF
+[device]
+wifi.backend=iwd
+EOF
 
   # Enable NetworkManager
   echo "Enabling NetworkManager"
