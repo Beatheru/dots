@@ -2,6 +2,9 @@
 
 set -euo pipefail
 
+SRC_DIR="./src"
+SCRIPTS_DIR="./scripts"
+
 start=$(date +%s)
 
 source setup.sh

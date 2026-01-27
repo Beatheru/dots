@@ -37,5 +37,5 @@ fi
 # Copy configs
 echo "Copying configs to .config"
 mkdir -p ~/.config
-cp -R ./configs/.config/* ~/.config/
-cp ./configs/bashrc ~/.bashrc
+cp -R $SRC_DIR/.config/* ~/.config/
+cp $SRC_DIR/bashrc ~/.bashrc

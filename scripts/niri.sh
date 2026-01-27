@@ -4,7 +4,7 @@
 if [[ -n "$(lspci | grep -iE 'vga|3d|display' | grep -i 'NVIDIA')" ]]; then
   echo "Fixing Niri VRAM issues with Nvidia"
   mkdir -p /etc/nvidia/nvidia-application-profiles-rc.d
-  sudo cp ./configs/50-limit-free-buffer-pool-in-wayland-compositors.json /etc/nvidia/nvidia-application-profiles-rc.d/
+  sudo cp .$SRC_DIR/50-limit-free-buffer-pool-in-wayland-compositors.json /etc/nvidia/nvidia-application-profiles-rc.d/
 fi
 
 # Set gtk settings
