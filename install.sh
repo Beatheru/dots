@@ -2,6 +2,8 @@
 
 set -euo pipefail
 
+OS_ID=$(awk -F= '/^ID/{print $2}' /etc/os-release | tr -d '"')
+
 SRC_DIR="./src"
 SCRIPTS_DIR="./scripts"
 
