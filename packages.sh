@@ -1,11 +1,68 @@
 #!/bin/bash
 
-# Install all packages listed in the package file
-PACKAGE_FILE="packages.list"
+PKGS=(
+  # CLI
+  btop
+  fastfetch
+  eza
+  bat
+  fzf
+  ripgrep
+  zoxide
+  tldr
+  wget
+  curl
+  fd
+  rsync
+  neovim
+  nano
+
+  # Apps
+  google-chrome
+  zen-browser-bin
+  discord
+  spotify-launcher
+  docker
+  yaak-bin
+  wireguard-tools
+  starship
+  ghostty
+  localsend-bin
+  obsidian
+  visual-studio-code-bin
+
+  # Niri
+  niri
+  xdg-desktop-portal-gtk
+  xdg-desktop-portal-gnome
+  xwayland-satellite
+  udiskie
+  polkit-kde-agent
+
+  # Noctalia
+  noctalia-shell
+  cliphist
+  cava
+  wlsunset
+  xdg-desktop-portal
+  evolution-data-server
+  matugen
+  adw-gtk-theme
+  nwg-look
+  qt6ct
+
+  # Fonts
+  noto-fonts
+  noto-fonts-cjk
+  noto-fonts-emoji
+  noto-fonts-extra
+  ttf-jetbrains-mono-nerd
+)
 
 echo "Installing packages"
-mapfile -t packages < <(grep -v '^#' "$PACKAGE_FILE" | grep -v '^$')
-paru -S --noconfirm --needed "${packages[@]}"
+for PKG in "${PKGS[@]}"; do
+  sudo paru -S --noconfirm --needed "$PKG"
+done
 
 # Hardware acceleration for Intel GPU
 if [[ -n "$(lspci | grep -iE 'vga|3d|display' | grep -i 'intel')" ]]; then

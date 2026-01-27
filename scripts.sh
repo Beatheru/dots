@@ -1,7 +1,5 @@
 #!/bin/bash
 
-SCRIPT_DIR="./scripts"
-
 # Run all script files
 for file in "$SCRIPT_DIR"/*; do
   if [[ -f "$file" && "$file" == *.sh ]]; then
