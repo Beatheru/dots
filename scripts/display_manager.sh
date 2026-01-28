@@ -1,6 +1,13 @@
 #!/bin/bash
 
-if [[ "$OS_ID" != "cachyos" ]]; then
+if [[ "$OS_ID" = "cachyos" ]]; then
+  sudo mkdir -p /etc/sddm.conf.d
+  cat <<EOF | sudo tee /etc/sddm.conf.d/autologin.conf
+[Autologin]
+User=$USER
+Session=niri
+EOF
+else 
   # Install Ly display manager
   echo "Installing Ly"
   paru -S --noconfirm --needed ly
